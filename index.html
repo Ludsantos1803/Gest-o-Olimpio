@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Olimpio Motos</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/login.js"></script>
+</head>
+<body>
+
+  <main class="flex items-center justify-center min-h-screen bg-gray-900 px-4">
+    <div class="card-neon w-full max-w-md">
+
+      <!-- Título -->
+      <h1>Olimpio Motos</h1>
+
+      <!-- Mensagem de feedback -->
+      <div id="mensagem" class="hidden text-center font-semibold transition-opacity duration-500"></div>
+
+      <!-- Seção de Login -->
+      <section id="loginFormSection">
+        <h2 class="text-center">Entrar</h2>
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label for="username">Usuário</label>
+            <input type="text" id="username" class="input-neon w-full" required />
+          </div>
+          <div>
+            <label for="password">Senha</label>
+            <input type="password" id="password" class="input-neon w-full" required />
+          </div>
+          <button type="submit" class="btn-neon w-full">Entrar</button>
+        </form>
+        <p class="text-center text-sm mt-4">
+          Não tem conta?
+          <a href="#" id="showRegister" class="text-cyan-400 hover:underline">Cadastre-se</a>
+        </p>
+      </section>
+
+      <!-- Seção de Registro -->
+      <section id="registerFormSection" class="hidden">
+        <h2 class="text-center">Registrar Novo Usuário</h2>
+        <form id="registerForm" class="space-y-4">
+          <div>
+            <label for="newName">Nome</label>
+            <input type="text" id="newName" class="input-neon w-full" required />
+          </div>
+          <div>
+            <label for="newUser">Usuário</label>
+            <input type="text" id="newUser" class="input-neon w-full" required />
+          </div>
+          <div>
+            <label for="newPass">Senha</label>
+            <input type="password" id="newPass" class="input-neon w-full" required />
+          </div>
+          <button type="submit" class="btn-neon w-full">Registrar</button>
+        </form>
+        <p class="text-center text-sm mt-4">
+          Já tem conta?
+          <a href="#" id="showLogin" class="text-cyan-400 hover:underline">Entrar</a>
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+</body>
+</html>

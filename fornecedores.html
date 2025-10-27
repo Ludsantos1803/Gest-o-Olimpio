@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Fornecedores - Olimpio Motos</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/fornecedores.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Cabeçalho superior -->
+  <header class="bg-gray-800 py-4 px-6 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-bold text-cyan-400">Cadastro de Fornecedores</h1>
+    <button id="logoutBtn" class="btn-neon px-4 py-2">Sair</button>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="p-6">
+    
+    <!-- Seção de cadastro -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-md mb-8">
+      <h2 class="text-xl font-semibold mb-4 text-cyan-400">Novo Fornecedor</h2>
+
+      <form id="formFornecedor" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Campos -->
+        <div>
+          <label class="block text-sm mb-2">Nome da Empresa</label>
+          <input type="text" id="empresa" class="input-neon w-full px-3 py-2" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-2">CNPJ</label>
+          <input type="text" id="cnpj" class="input-neon w-full px-3 py-2" placeholder="00.000.000/0000-00" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-2">Telefone</label>
+          <input type="text" id="telefone" class="input-neon w-full px-3 py-2" placeholder="(00) 00000-0000">
+        </div>
+
+        <div>
+          <label class="block text-sm mb-2">E-mail</label>
+          <input type="email" id="email" class="input-neon w-full px-3 py-2">
+        </div>
+
+        <div>
+          <label class="block text-sm mb-2">Endereço</label>
+          <input type="text" id="endereco" class="input-neon w-full px-3 py-2">
+        </div>
+
+        <div class="col-span-full flex justify-end">
+          <button type="submit" class="btn-neon px-6 py-2 mt-2">Adicionar Fornecedor</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Lista de fornecedores -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4 text-cyan-400">Lista de Fornecedores</h2>
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="text-cyan-300 border-b border-cyan-500">
+            <th class="py-2 text-left">Empresa</th>
+            <th class="py-2 text-left">CNPJ</th>
+            <th class="py-2 text-left">Telefone</th>
+            <th class="py-2 text-left">E-mail</th>
+            <th class="py-2 text-left">Endereço</th>
+            <th class="py-2 text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaFornecedores" class="text-gray-200"></tbody>
+      </table>
+    </section>
+
+  </main>
+</body>
+</html>

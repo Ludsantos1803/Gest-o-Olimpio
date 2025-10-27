@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Produtos - Olimpio Motos</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/produtos.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Cabeçalho -->
+  <header class="bg-gray-800 py-4 px-6 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-bold text-cyan-400">Cadastro de Produtos</h1>
+    <button id="logoutBtn" class="btn-neon px-4 py-2">Sair</button>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="p-6">
+
+    <!-- Seção de cadastro de produto -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-md mb-8">
+      <h2 class="text-xl font-semibold mb-4 text-cyan-400">Novo Produto</h2>
+
+      <form id="formProduto" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Nome do Produto -->
+        <div>
+          <label class="block text-sm mb-2">Nome do Produto</label>
+          <input type="text" id="nome" class="input-neon w-full px-3 py-2" required>
+        </div>
+
+        <!-- Código -->
+        <div>
+          <label class="block text-sm mb-2">Código</label>
+          <input type="text" id="codigo" class="input-neon w-full px-3 py-2" required>
+        </div>
+
+        <!-- Preço -->
+        <div>
+          <label class="block text-sm mb-2">Preço (R$)</label>
+          <input type="number" id="preco" class="input-neon w-full px-3 py-2" required step="0.01">
+        </div>
+
+        <!-- Estoque -->
+        <div>
+          <label class="block text-sm mb-2">Estoque</label>
+          <input type="number" id="estoque" class="input-neon w-full px-3 py-2" required>
+        </div>
+
+        <!-- Fornecedor -->
+        <div>
+          <label class="block text-sm mb-2">Fornecedor</label>
+          <select id="fornecedor" class="input-neon w-full px-3 py-2" required>
+            <option value="">Selecione o fornecedor</option>
+            <!-- Será preenchido automaticamente pelo JS -->
+          </select>
+        </div>
+
+        <!-- Botão -->
+        <div class="col-span-full flex justify-end">
+          <button type="submit" class="btn-neon px-6 py-2 mt-2">Adicionar Produto</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Lista de produtos -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4 text-cyan-400">Produtos Cadastrados</h2>
+
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="text-cyan-300 border-b border-cyan-500">
+            <th class="py-2 text-left">Nome</th>
+            <th class="py-2 text-left">Código</th>
+            <th class="py-2 text-left">Preço</th>
+            <th class="py-2 text-left">Estoque</th>
+            <th class="py-2 text-left">Fornecedor</th>
+            <th class="py-2 text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaProdutos" class="text-gray-200"></tbody>
+      </table>
+    </section>
+
+  </main>
+</body>
+</html>

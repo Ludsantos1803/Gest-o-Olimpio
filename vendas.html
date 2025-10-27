@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Vendas - Olimpio Motos</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/vendas.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Barra superior -->
+  <header class="bg-gray-800 py-4 px-6 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-bold text-cyan-400">Painel de Vendas</h1>
+    <button id="logoutBtn" class="btn-neon px-4 py-2">Sair</button>
+  </header>
+
+  <!-- Container principal -->
+  <main class="p-6">
+    <!-- Formulário de nova venda -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-md mb-8">
+      <h2 class="text-xl font-semibold mb-4 text-cyan-400">Nova Venda</h2>
+      <form id="formVenda" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- Campos do formulário -->
+        <div>
+          <label class="block text-sm mb-2">Cliente</label>
+          <input type="text" id="cliente" class="input-neon w-full px-3 py-2" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-2">Produto</label>
+          <input type="text" id="produto" class="input-neon w-full px-3 py-2" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-2">Quantidade</label>
+          <input type="number" id="quantidade" class="input-neon w-full px-3 py-2" required>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-2">Preço Unitário (R$)</label>
+          <input type="number" step="0.01" id="preco" class="input-neon w-full px-3 py-2" required>
+        </div>
+
+        <div class="col-span-full flex justify-end">
+          <button type="submit" class="btn-neon px-6 py-2 mt-2">Adicionar Venda</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Lista de vendas -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4 text-cyan-400">Lista de Vendas</h2>
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="text-cyan-300 border-b border-cyan-500">
+            <th class="py-2 text-left">Cliente</th>
+            <th class="py-2 text-left">Produto</th>
+            <th class="py-2 text-left">Qtd</th>
+            <th class="py-2 text-left">Preço (R$)</th>
+            <th class="py-2 text-left">Total (R$)</th>
+            <th class="py-2 text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaVendas" class="text-gray-200"></tbody>
+      </table>
+    </section>
+  </main>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendas - Olimpio Motos</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/vendas.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Cabeçalho -->
+  <header class="bg-gray-800 py-4 px-6 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-bold text-cyan-400">Registrar Vendas</h1>
+    <button id="logoutBtn" class="btn-neon px-4 py-2">Sair</button>
+  </header>
+
+  <main class="p-6">
+
+    <!-- Formulário de nova venda -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-md mb-8">
+      <h2 class="text-xl font-semibold mb-4 text-cyan-400">Nova Venda</h2>
+
+      <form id="formVenda" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Cliente -->
+        <div>
+          <label class="block text-sm mb-2">Cliente</label>
+          <select id="cliente" class="input-neon w-full px-3 py-2" required>
+            <option value="">Selecione o cliente</option>
+            <!-- Será preenchido pelo JS -->
+          </select>
+        </div>
+
+        <!-- Produto -->
+        <div>
+          <label class="block text-sm mb-2">Produto</label>
+          <select id="produto" class="input-neon w-full px-3 py-2" required>
+            <option value="">Selecione o produto</option>
+          </select>
+        </div>
+
+        <!-- Quantidade -->
+        <div>
+          <label class="block text-sm mb-2">Quantidade</label>
+          <input type="number" id="quantidade" class="input-neon w-full px-3 py-2" required min="1">
+        </div>
+
+        <!-- Botão -->
+        <div class="col-span-full flex justify-end">
+          <button type="submit" class="btn-neon px-6 py-2 mt-2">Registrar Venda</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Lista de vendas -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-md">
+      <h2 class="text-xl font-semibold mb-4 text-cyan-400">Vendas Realizadas</h2>
+
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="text-cyan-300 border-b border-cyan-500">
+            <th class="py-2 text-left">Cliente</th>
+            <th class="py-2 text-left">Produto</th>
+            <th class="py-2 text-left">Quantidade</th>
+            <th class="py-2 text-left">Valor Total</th>
+            <th class="py-2 text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaVendas" class="text-gray-200"></tbody>
+      </table>
+    </section>
+
+  </main>
+</body>
+</html>
